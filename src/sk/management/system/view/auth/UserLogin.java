@@ -7,6 +7,7 @@ package sk.management.system.view.auth;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.JFrame;
 import sk.management.system.Controller.UserController;
 
 /**
@@ -19,26 +20,12 @@ public class UserLogin extends javax.swing.JFrame {
      * Creates new form UserLogin
      */
     public UserLogin() {
+        
         initComponents();
-        addUserView();
-    }
-     private void addUserView() {
-         UserController userController = new UserController();
-    UserView userView = new UserView(userController);
-    
-    // Ensure panelLogin is set up correctly
-    panelLogin.setLayout(new BorderLayout());
-    panelLogin.setOpaque(true);
-    panelLogin.setBackground(Color.WHITE);
-    
-    // Set UserView size
-    userView.setPreferredSize(new Dimension(400, 400));
-    
-    // Add UserView and refresh UI
-    panelLogin.add(userView, BorderLayout.CENTER);
-    panelLogin.revalidate();
-    panelLogin.repaint();
-    
+        setTitle("User Login");
+        setLocationRelativeTo(null); // Center the window on the screen
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     
     }
 
     /**
@@ -66,7 +53,7 @@ public class UserLogin extends javax.swing.JFrame {
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(loginPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+            .addComponent(loginPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
         );
 
         panelDisplay.setBackground(new java.awt.Color(0, 0, 102));
@@ -75,7 +62,7 @@ public class UserLogin extends javax.swing.JFrame {
         panelDisplay.setLayout(panelDisplayLayout);
         panelDisplayLayout.setHorizontalGroup(
             panelDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGap(0, 774, Short.MAX_VALUE)
         );
         panelDisplayLayout.setVerticalGroup(
             panelDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -16,26 +16,22 @@ import java.util.Date;
 public class UserDAOIMPL extends DBConnection{
     
     
-     public User getUserByUsername(String username, String password) {
+     public User getUserByEmail(String user_email, String user_password) {
         User user = null;
-        String query = "SELECT * FROM tbluser WHERE user_username = ? AND user_pass = ?"; // adjust table name accordingly
+        String query = "SELECT * FROM tbluser WHERE user_email = ? AND user_pass = ?"; // adjust table name accordingly
         
         try  {
             connection();
             stmt = con.prepareStatement(query);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+            stmt.setString(1, user_email);
+            stmt.setString(2, user_password);
             rs = stmt.executeQuery();
             
            if (rs.next()) {
                 user = new User(
                     rs.getInt("user_id"),
                     rs.getString("user_name"),
-                    rs.getDate("user_bdate"),
-                    rs.getString("user_gender"),
-                    rs.getString("user_address"),
-                    rs.getString("user_contactno"),
-                    rs.getString("user_username"),
+                    rs.getString("user_email"),
                     rs.getString("user_pass"),
                     rs.getString("role")
                 );
@@ -51,19 +47,15 @@ public class UserDAOIMPL extends DBConnection{
 //            return false;  // Username already exists
 //        }
 
-        String query = "INSERT INTO tbluser (user_name, user_bdate, user_gender, user_address,  user_contactno, user_username, user_pass, role) VALUES (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO tbluser (user_name, user_email, user_pass, role) VALUES (?,?,?,?)";
         try {
             connection();
             stmt = con.prepareStatement(query);
             
             stmt.setString(1, user.getUser_name());
-            stmt.setDate(2, new java.sql.Date(user.getUser_dob().getTime()));
-            stmt.setString(3, user.getUser_gender());
-            stmt.setString(4, user.getUser_address());
-            stmt.setString(5, user.getUser_contact());
-            stmt.setString(6, user.getUser_username());
-            stmt.setString(7, user.getUser_pass()); // Use hashing in production
-            stmt.setString(8, user.getUser_role());
+            stmt.setString(2, user.getUser_email());
+            stmt.setString(3, user.getUser_pass()); // Use hashing in production
+            stmt.setString(4, user.getUser_role());
            
 
             int rowsInserted = stmt.executeUpdate();
@@ -74,13 +66,13 @@ public class UserDAOIMPL extends DBConnection{
             return false;
         }
     }
-    public boolean userExists(String username) {
-        String query = "SELECT user_username FROM tbluser WHERE user_username = ?";
+    public boolean userExists(User user) {
+        String query = "SELECT user_email FROM tbluser WHERE user_email = ?";
         try {
             connection();
             stmt = con.prepareStatement(query);
 
-            stmt.setString(1, username);
+            stmt.setString(1, user.getUser_email());
             rs = stmt.executeQuery();
             return rs.next();  // If a result exists, user already exists
 

@@ -26,6 +26,8 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="panelDisplay" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="registerPanel2" min="-2" pref="420" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="panelRegister" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -34,6 +36,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="panelDisplay" max="32767" attributes="0"/>
           <Component id="panelRegister" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="registerPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -41,7 +47,10 @@
     <Container class="javax.swing.JPanel" name="panelDisplay">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="66" red="66" type="rgb"/>
+          <Color blue="66" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="33" red="0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -53,7 +62,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="742" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -68,7 +77,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="402" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -78,5 +87,7 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="sk.management.system.view.auth.RegisterPanel" name="registerPanel2">
+    </Component>
   </SubComponents>
 </Form>

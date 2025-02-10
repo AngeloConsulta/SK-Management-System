@@ -15,14 +15,11 @@ import sk.management.system.view.dashboard.Form_Dashboard;
 
 public class LoginPanel extends javax.swing.JPanel {
     
-    private JTextField txtUsername;
-    private JPasswordField txtPassword;
-    private JComboBox<String> cmbRole;
-    private JButton btnLogin;
-    private JButton btnRegister;
+   
     private UserController controller;
-    private Point initialClick; 
+    
     public LoginPanel() {
+       
         initComponents();
     }
 
@@ -61,6 +58,11 @@ public class LoginPanel extends javax.swing.JPanel {
         btnLog.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnLog.setForeground(new java.awt.Color(153, 0, 255));
         btnLog.setText("Login");
+        btnLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogActionPerformed(evt);
+            }
+        });
 
         btnReg.setBackground(new java.awt.Color(102, 0, 102));
         btnReg.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -133,11 +135,51 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addContainerGap(150, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+     public void setController(UserController controller) {
+        this.controller = controller;
+    }
 
+    private void doLogin() {
+        String email = txtEmail.getText().trim();
+        String password = new String(txtPass.getPassword()).trim();
+        
+        if (controller == null) {
+            JOptionPane.showMessageDialog(this, "System error: Controller not initialized!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+       
+        boolean authenticated = controller.loginUser(email, password);
+
+        if (authenticated) {
+            SwingUtilities.getWindowAncestor(this).dispose();
+
+            // Open the Main Dashboard
+            Main mainDashboard = new Main();
+            mainDashboard.setVisible(true);
+
+           // Show the default dashboard form
+            mainDashboard.showForm(new Form_Dashboard());
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid Username or Password", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    
+    }
     private void btnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegActionPerformed
         // TODO add your handling code here:
-        
+        RegisterUser regView = new RegisterUser(controller);
+                regView.setVisible(true);
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((Component) evt.getSource());
+                    if (frame != null) {
+                    frame.dispose();
+                    }
     }//GEN-LAST:event_btnRegActionPerformed
+
+    private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
+        // TODO add your handling code here:
+        doLogin();
+    }//GEN-LAST:event_btnLogActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

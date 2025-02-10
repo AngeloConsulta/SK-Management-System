@@ -19,24 +19,10 @@ public class RegisterUser extends javax.swing.JFrame {
 
      public RegisterUser(UserController controller) {
          setTitle("User Registration");
-        setSize(500, 600);
+        
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-
-        // Ensure contentPane uses BorderLayout to center panelRegister
-        setLayout(new BorderLayout());
-
-        panelRegister = new JPanel();
-        panelRegister.setLayout(new GridBagLayout());  // Centers the RegisterView inside
-
-        RegisterView registerView = new RegisterView(controller);
-        registerView.setPreferredSize(new Dimension(400, 500));  // Set proper width
-
-        panelRegister.add(registerView);
-        add(panelRegister, BorderLayout.CENTER);
-
-        setVisible(true);
-   
+        
         initComponents();
     }
 
@@ -51,10 +37,12 @@ public class RegisterUser extends javax.swing.JFrame {
 
         panelDisplay = new javax.swing.JPanel();
         panelRegister = new javax.swing.JPanel();
+        registerPanel2 = new sk.management.system.view.auth.RegisterPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelDisplay.setBackground(new java.awt.Color(102, 102, 255));
+        panelDisplay.setBackground(new java.awt.Color(0, 0, 102));
+        panelDisplay.setForeground(new java.awt.Color(0, 51, 102));
 
         javax.swing.GroupLayout panelDisplayLayout = new javax.swing.GroupLayout(panelDisplay);
         panelDisplay.setLayout(panelDisplayLayout);
@@ -64,7 +52,7 @@ public class RegisterUser extends javax.swing.JFrame {
         );
         panelDisplayLayout.setVerticalGroup(
             panelDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 742, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         panelRegister.setBackground(new java.awt.Color(255, 255, 255));
@@ -73,7 +61,7 @@ public class RegisterUser extends javax.swing.JFrame {
         panelRegister.setLayout(panelRegisterLayout);
         panelRegisterLayout.setHorizontalGroup(
             panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panelRegisterLayout.setVerticalGroup(
             panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,12 +75,17 @@ public class RegisterUser extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registerPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(registerPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,5 +99,6 @@ public class RegisterUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel panelDisplay;
     private javax.swing.JPanel panelRegister;
+    private sk.management.system.view.auth.RegisterPanel registerPanel2;
     // End of variables declaration//GEN-END:variables
 }

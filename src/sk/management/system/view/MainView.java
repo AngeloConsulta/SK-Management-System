@@ -11,6 +11,6 @@ import sk.management.system.model.User;
  * @author Administrator
  */
 public interface MainView {
-  
+  public User doRegister(User user) ;
     
 }

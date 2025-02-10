@@ -4,9 +4,10 @@
  */
 package sk.management.system.Controller;
 
+import javax.swing.JOptionPane;
 import sk.management.system.DAOIMPL.UserDAOIMPL;
 import sk.management.system.model.User;
-import sk.management.system.view.auth.UserView;
+import sk.management.system.view.auth.RegisterPanel;
 
 /**
  *
@@ -17,19 +18,35 @@ public class UserController {
     
     
     
-    public boolean loginUser(String username , String password){
-        User user = userDAO.getUserByUsername(username, password);
-        if (user != null && user.getUser_pass().equals(user.getUser_pass())){
+    public boolean loginUser(String user_email, String user_password){
+        
+        User user = userDAO.getUserByEmail(user_email, user_password);
+        if (user != null && user.getUser_pass().equals(user_password)){
            return true; 
         }
         return false;
     }
      public boolean registerUser(User user) {
-        return userDAO.registerUser(user);  // Calls DAO to save new user
+         
+        if (!isValidUser(user)) {
+            return false;
+        }
+        return userDAO.registerUser(user);
     }
 
-    public boolean userExists(String username) {
-        return userDAO.userExists(username);  // Checks if user already exists
+    private boolean isValidUser(User user) {
+        return !user.getUser_name().isEmpty() &&
+               !user.getUser_role().isEmpty() &&
+               !user.getUser_email().isEmpty() &&
+               user.getUser_pass().length() >= 6 &&
+               !user.getUser_role().equalsIgnoreCase("admin");
+    }
+
+      
+
+
+    public boolean userExists(User user_email) {
+        return userDAO.userExists(user_email);  // Checks if user already exists
     }
     
 }

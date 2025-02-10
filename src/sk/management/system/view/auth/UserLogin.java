@@ -51,6 +51,7 @@ public class UserLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         panelLogin = new javax.swing.JPanel();
+        loginPanel1 = new sk.management.system.view.auth.LoginPanel();
         panelDisplay = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,14 +62,14 @@ public class UserLogin extends javax.swing.JFrame {
         panelLogin.setLayout(panelLoginLayout);
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addComponent(loginPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 767, Short.MAX_VALUE)
+            .addComponent(loginPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
         );
 
-        panelDisplay.setBackground(new java.awt.Color(102, 102, 255));
+        panelDisplay.setBackground(new java.awt.Color(0, 0, 102));
 
         javax.swing.GroupLayout panelDisplayLayout = new javax.swing.GroupLayout(panelDisplay);
         panelDisplay.setLayout(panelDisplayLayout);
@@ -105,6 +106,7 @@ public class UserLogin extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private sk.management.system.view.auth.LoginPanel loginPanel1;
     private javax.swing.JPanel panelDisplay;
     private javax.swing.JPanel panelLogin;
     // End of variables declaration//GEN-END:variables

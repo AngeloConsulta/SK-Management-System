@@ -205,10 +205,16 @@ public class RegisterPanel extends javax.swing.JPanel {
     private void cmbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRoleActionPerformed
         // TODO add your handling code here:
         
+        
     }//GEN-LAST:event_cmbRoleActionPerformed
 
     private void chkPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPasswordActionPerformed
         // TODO add your handling code here:
+        if(chkPassword.isSelected()){
+            txtPassword.setEchoChar((char)0);
+        }else{
+            txtPassword.setEchoChar('*');
+        }
     }//GEN-LAST:event_chkPasswordActionPerformed
 
     private void btnRegLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegLogActionPerformed

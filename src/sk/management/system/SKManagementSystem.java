@@ -6,7 +6,7 @@ package sk.management.system;
 
 import javax.swing.SwingUtilities;
 import sk.management.system.Controller.UserController;
-import sk.management.system.view.auth.UserView;
+
 import sk.management.system.util.DBConnection;
 import sk.management.system.view.auth.UserLogin;
 

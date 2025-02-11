@@ -11,7 +11,7 @@ import sk.management.system.model.User;
  * @author Administrator
  */
 public interface UserDAO {
-     public User getUserByUsername(String username, String password);
+      public User getUserByEmail(String user_email, String user_password);
       public boolean registerUser(User user);
-      public boolean userExists(String username);
+      public boolean userExists(User user) ;
 }

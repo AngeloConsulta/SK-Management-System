@@ -16,9 +16,7 @@ import sk.management.system.Controller.UserController;
  */
 public class UserLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UserLogin
-     */
+    
     public UserLogin() {
         
         initComponents();

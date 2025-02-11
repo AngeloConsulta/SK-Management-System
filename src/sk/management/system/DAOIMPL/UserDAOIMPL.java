@@ -8,14 +8,16 @@ import sk.management.system.model.User;
 import sk.management.system.util.DBConnection;
 import java.sql.SQLException;
 import java.util.Date;
+import sk.management.system.DAO.UserDAO;
 //import java.sql.Date;
 /**
  *
  * @author Administrator
  */
-public class UserDAOIMPL extends DBConnection{
+public class UserDAOIMPL extends DBConnection implements UserDAO{
     
     
+     @Override
      public User getUserByEmail(String user_email, String user_password) {
         User user = null;
         String query = "SELECT * FROM tbluser WHERE user_email = ? AND user_pass = ?"; // adjust table name accordingly
@@ -42,6 +44,7 @@ public class UserDAOIMPL extends DBConnection{
         return user;
     }
      
+     @Override
     public boolean registerUser(User user) {
 //        if (userExists(user.getUser_username())) {
 //            return false;  // Username already exists
@@ -66,6 +69,7 @@ public class UserDAOIMPL extends DBConnection{
             return false;
         }
     }
+     @Override
     public boolean userExists(User user) {
         String query = "SELECT user_email FROM tbluser WHERE user_email = ?";
         try {

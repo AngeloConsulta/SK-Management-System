@@ -19,7 +19,7 @@ public class LoginPanel extends javax.swing.JPanel {
     private UserController controller;
     
     public LoginPanel() {
-       
+         this.controller = new UserController(); 
         initComponents();
     }
 
@@ -76,6 +76,11 @@ public class LoginPanel extends javax.swing.JPanel {
 
         chkPassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         chkPassword.setText("Show Password");
+        chkPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPasswordActionPerformed(evt);
+            }
+        });
 
         Password1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         Password1.setForeground(new java.awt.Color(153, 51, 255));
@@ -170,6 +175,7 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         RegisterUser regView = new RegisterUser(controller);
                 regView.setVisible(true);
+                regView.setLocationRelativeTo(null);
                 JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((Component) evt.getSource());
                     if (frame != null) {
                     frame.dispose();
@@ -180,6 +186,16 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         doLogin();
     }//GEN-LAST:event_btnLogActionPerformed
+
+    private void chkPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPasswordActionPerformed
+        // TODO add your handling code here:
+        if(chkPassword.isSelected()){
+            txtPass.setEchoChar((char)0);
+        }else{
+            txtPass.setEchoChar('*');
+        }
+
+    }//GEN-LAST:event_chkPasswordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

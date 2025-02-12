@@ -76,6 +76,7 @@ public class Menu extends JPanel {
 
     private JPanel createMenuItem(ModelMenuItem item) {
         MenuItem menuItem = new MenuItem(item, ++index, menuLayout);
+//        menuItem.setFont(new Font("Arial", Font.PLAIN, 24)); 
         menuItem.addEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {

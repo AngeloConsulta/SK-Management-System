@@ -1,10 +1,14 @@
 package sk.management.system.view.components;
 
-public class Profile extends javax.swing.JPanel {
+import sk.management.system.view.components.system.PanelTransparent;
+import sk.management.system.view.components.system.SystemColor;
+
+public class Profile extends  PanelTransparent {
 
     public Profile() {
         initComponents();
-        setOpaque(false);
+        setBackground(SystemColor.MAIN_COLOR_2);
+         setTransparent(0.5f);
     }
 
     @SuppressWarnings("unchecked")

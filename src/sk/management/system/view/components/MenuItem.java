@@ -3,6 +3,7 @@ package sk.management.system.view.components;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -45,6 +46,8 @@ public class MenuItem extends JPanel {
         Item menu = new Item(true, 0);
         menu.setGoogleIcon(item.getIcon());
         menu.setText("  " + item.getMenuName());
+        menu.setFont(new Font("DM Sans", Font.PLAIN, 14)); // Set font to 18px
+
         menu.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {

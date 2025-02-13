@@ -7,7 +7,7 @@ public class Profile extends  PanelTransparent {
 
     public Profile() {
         initComponents();
-        setBackground(SystemColor.MAIN_COLOR_2);
+        setBackground(SystemColor.MAIN_COLOR_1);
          setTransparent(0.5f);
     }
 
@@ -16,6 +16,9 @@ public class Profile extends  PanelTransparent {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+
+        setMinimumSize(new java.awt.Dimension(316, 62));
+        setPreferredSize(new java.awt.Dimension(316, 62));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
@@ -29,14 +32,14 @@ public class Profile extends  PanelTransparent {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

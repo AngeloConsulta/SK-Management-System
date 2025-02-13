@@ -45,12 +45,12 @@ public class Form_Dashboard extends javax.swing.JPanel {
 
         setOpaque(false);
 
-        card3.setColor1(new java.awt.Color(51, 255, 204));
+        card3.setColor1(new java.awt.Color(153, 0, 204));
         card3.setColor2(new java.awt.Color(0, 153, 153));
         card3.setDescription("Activities Implemented Monthly");
         card3.setIcon(javaswingdev.GoogleMaterialDesignIcon.LOCAL_ACTIVITY);
 
-        card2.setColor1(new java.awt.Color(51, 255, 51));
+        card2.setColor1(new java.awt.Color(102, 0, 255));
         card2.setColor2(new java.awt.Color(0, 204, 51));
         card2.setDescription("Youth Count  Monthly");
         card2.setEnabled(false);

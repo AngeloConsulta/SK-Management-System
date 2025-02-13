@@ -24,16 +24,16 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="panelLogin" min="-2" max="-2" attributes="0"/>
+              <Component id="panelLogin" min="-2" pref="409" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelDisplay" max="32767" attributes="0"/>
+              <Component id="panelDisplay1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelLogin" max="32767" attributes="0"/>
-          <Component id="panelDisplay" alignment="0" max="32767" attributes="0"/>
+          <Component id="panelLogin" pref="809" max="32767" attributes="0"/>
+          <Component id="panelDisplay1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -42,35 +42,17 @@
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="loginPanel1" alignment="0" pref="404" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="loginPanel1" alignment="0" pref="776" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
       <SubComponents>
         <Component class="sk.management.system.view.auth.LoginPanel" name="loginPanel1">
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="panelDisplay">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="0" red="0" type="rgb"/>
-        </Property>
-      </Properties>
+    <Container class="sk.management.system.view.auth.panelDisplay" name="panelDisplay1">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="774" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="762" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

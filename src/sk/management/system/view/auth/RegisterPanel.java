@@ -22,6 +22,16 @@ public class RegisterPanel extends javax.swing.JPanel {
     public RegisterPanel() {
         
         initComponents();
+        btnRegLog.setBackground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_1);
+        btnReg.setBackground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        btnRegLog.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        btnReg.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_1);
+        jLabel1.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        jLabel2.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        jLabel3.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        jLabel4.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        jLabel5.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
+        Password1.setForeground(sk.management.system.view.components.system.SystemColor.MAIN_COLOR_2);
     }
 
     /**
@@ -56,9 +66,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("SK MANAGEMENT SYSTEM");
 
-        btnReg.setBackground(new java.awt.Color(0, 0, 102));
         btnReg.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnReg.setForeground(new java.awt.Color(153, 0, 255));
         btnReg.setText("Register");
         btnReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,12 +84,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         });
 
         Password1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        Password1.setForeground(new java.awt.Color(153, 51, 255));
         Password1.setText("Already have have an account?");
 
-        btnRegLog.setBackground(new java.awt.Color(102, 0, 102));
         btnRegLog.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnRegLog.setForeground(new java.awt.Color(153, 0, 255));
         btnRegLog.setText("Login");
         btnRegLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

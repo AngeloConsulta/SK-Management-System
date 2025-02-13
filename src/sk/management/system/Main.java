@@ -66,6 +66,7 @@ public class Main extends javax.swing.JFrame {
 
         profile1.setBackground(new java.awt.Color(0, 102, 204));
         profile1.setForeground(new java.awt.Color(0, 51, 255));
+        profile1.setPreferredSize(new java.awt.Dimension(316, 62));
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
@@ -95,7 +96,7 @@ public class Main extends javax.swing.JFrame {
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+            .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

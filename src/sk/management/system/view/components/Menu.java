@@ -38,21 +38,21 @@ public class Menu extends JPanel {
         // MANAGEMENT
         addTitle("MANAGEMENT");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ATTACH_MONEY, "Local Budget"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.INSERT_DRIVE_FILE, "File Management", "PDF Storage", "Image Storage"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.INSERT_DRIVE_FILE, "File Management")); //, "Documentation Storage","PDF Storage", "Image Storage"
         // ACTIVITIES
         addTitle("ACTIVITIES");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EVENT, "List of Activities"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PIE_CHART_OUTLINED, "Implemented Activities"));
+//        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PIE_CHART_OUTLINED, "Implemented Activities"));
 
         // YOUTH
         addTitle("YOUTH");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON_ADD, "Youth Registration"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Total Youth Count"));
+//        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Total Youth Count"));
 
         // REPORTS
-        addTitle("REPORTS");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ACCOUNT_BALANCE_WALLET, "Budget Balance"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EQUALIZER, "Activity Statistics"));
+//        addTitle("REPORTS");
+//        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ACCOUNT_BALANCE_WALLET, "Budget Balance"));
+//        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EQUALIZER, "Activity Statistics"));
     }
 
 

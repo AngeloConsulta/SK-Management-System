@@ -2,20 +2,28 @@ package sk.management.system.view.dashboard;
 
 import java.awt.Component;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import sk.management.system.Controller.TransactionController;
 import sk.management.system.model.Transaction;
 import sk.management.system.view.dashboard.AddTransaction;
+import sk.management.system.view.profile.Action;
 
 public class Form_Empty extends javax.swing.JPanel {
     private TransactionController transactionController = new TransactionController();
-
+//    private Action action = new Action();
+    private JButton button = new JButton("text");
+    
     public Form_Empty(String name) {
         initComponents();
 //        lb.setText("Form " + name);
 //        txtSearch.setPrefixIcon(new ImageIcon(getClass().getResource("/sk/management/system/images/search.png")));
+//       tableBudget.fixTable(jScrollPane1);
+//        tableBudget.addRow(new Object[]{"1", "Mike Bhand", "mikebhand@gmail.com", "Admin", button });
+
+
         txtSearch.setHint("Search");
         add(txtSearch, "w 20%");
     }
@@ -64,7 +72,7 @@ public class Form_Empty extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

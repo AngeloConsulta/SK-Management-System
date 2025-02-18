@@ -42,6 +42,13 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
     public List<Transaction> getAllTransactions(){
         List <Transaction> transaction = new ArrayList<>();
         try {
+            //try{
+             //ResultSetMetaData rsmd = rs.getMetaData();
+
+            //for(int i = 1; i <= rsmd.getColumnCount(); i++){
+ 
+            //}
+
             connection();
             stmt = con.prepareStatement(TRANS_UPDATE);
             rs = stmt.executeQuery();
@@ -64,6 +71,7 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
         transaction.setAmount(rs.getDouble("trans_amount"));
         return transaction;
     }
+    // while (result) && ResultMetaData is required
     
     @Override
     public boolean updateTransaction(Transaction transaction){

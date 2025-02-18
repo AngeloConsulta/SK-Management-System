@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class TableHeader extends JLabel {
@@ -11,6 +12,7 @@ public class TableHeader extends JLabel {
     public TableHeader(String text) {
         super(text);
         setOpaque(true);
+        setHorizontalAlignment(SwingConstants.CENTER); 
         setBackground(Color.WHITE);
         setFont(new Font("sansserif", 1, 12));
         setForeground(new Color(102, 102, 102));

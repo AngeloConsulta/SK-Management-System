@@ -2,6 +2,8 @@ package sk.management.system.view.profile;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.Collections;
+import java.util.List;
 import sk.management.system.view.components.scroll.ScrollBar;
 import sk.management.system.view.components.system.SystemColor;
 import javax.swing.JPanel;
@@ -9,10 +11,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import sk.management.system.Controller.TransactionController;
+import sk.management.system.model.ModelAction;
+import sk.management.system.model.Transaction;
 
-public class Table extends JTable {
-
+public class Table extends JTable implements EventAction{
+    private List<Transaction> transactions;
+    private TransactionController controller = new TransactionController();
     public Table() {
+//        loadData();
         setShowHorizontalLines(true);
         setGridColor(new Color(230, 230, 230));
         setRowHeight(40);
@@ -39,10 +46,53 @@ public class Table extends JTable {
             }
         });
     }
+     public void loadData() {
+         transactions = controller.getAllTransactions();
+         if (transactions == null) {
+            transactions = Collections.emptyList();
+        }
+        // Assume the table's model is a DefaultTableModel with proper column names.
+        DefaultTableModel model = (DefaultTableModel) getModel();
+        // Clear existing rows
+        model.setRowCount(0);
+        // Add rows for each transaction
+        for (Transaction t : transactions) {
+            // You can customize the "Action" column content as needed (here we use an empty string or ModelAction placeholder)
+            //Create an EventAction for each row
+            EventAction event = new EventAction(){
+                @Override
+                public void delete(Transaction transaction){
+                    System.out.println("Delete: " + transaction.getId());
+                }
+                @Override
+                public void update(Transaction transaction){
+                    System.out.println("Edit: " + transaction.getId());
+                }
+            
+          
+            };
+            ModelAction actionData = new ModelAction(t , event);
+            model.addRow(new Object[] {
+                t.getId(),
+                t.getType(),
+                t.getDescription(),
+                t.getAmount(),
+                actionData
+//               "" // Action column placeholder (rendered via custom cell renderer/editor if needed)
+
+        });
+        // Notify the table that data has changed (if needed, model.addRow() usually triggers this).
+        // model.fireTableDataChanged();
+        }
+    }
+    
 
     public void addRow(Object[] row) {
         DefaultTableModel model = (DefaultTableModel) getModel();
         model.addRow(row);
+    }
+    public void forLoopingButton(){ // Requirements for JTable button inside
+        
     }
     
 
@@ -55,4 +105,16 @@ public class Table extends JTable {
         p.setBackground(Color.WHITE);
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
     }
+
+    @Override
+    public void delete(Transaction transaction) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(Transaction transaction) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+ 
 }

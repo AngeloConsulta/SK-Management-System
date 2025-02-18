@@ -13,17 +13,16 @@
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/components/Header.java</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/dashboard/Form_Empty.java</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/profile/Table.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/dashboard/AddTransaction.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/images/menu.png</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/profile/TableHeader.java</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/profile/EventAction.java</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/profile/Action.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/images/SK%20Logo.png</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/Main.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/auth/MyTextField.java</file>
+            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/DAOIMPL/TransactionDAOIMPL.java</file>
+            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/profile/TableCellRendererAction.java</file>
+            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/view/dashboard/Form_Dashboard.java</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/model/Transaction.java</file>
+            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/DAOIMPL/UserDAOIMPL.java</file>
             <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/Controller/TransactionController.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/SK%20Management%20System/src/sk/management/system/Controller/DashboardController.java</file>
         </group>
     </open-files>
 </project-private>

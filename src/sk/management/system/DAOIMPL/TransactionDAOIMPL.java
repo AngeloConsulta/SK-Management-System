@@ -25,7 +25,7 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
             
             connection();
            
-            stmt = con.prepareStatement(CREATEACCOUNT);
+            stmt = con.prepareStatement(TRANS_ADD);
             stmt.setString(1, transaction.getType());
             stmt.setString(2, transaction.getDescription());
             stmt.setDouble(3, transaction.getAmount());
@@ -39,18 +39,19 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
         }
         return success;
     }
-    public List<Transaction> getAllTransactions(){
-        List <Transaction> transaction = new ArrayList<>();
-        try {
-            //try{
+      //try{
              //ResultSetMetaData rsmd = rs.getMetaData();
 
             //for(int i = 1; i <= rsmd.getColumnCount(); i++){
  
             //}
+    public List<Transaction> getAllTransactions(){
+        List <Transaction> transaction = new ArrayList<>();
+        try {
+          
 
             connection();
-            stmt = con.prepareStatement(TRANS_UPDATE);
+            stmt = con.prepareStatement(TRANS_VIEWACTIVE);
             rs = stmt.executeQuery();
             
             while (rs.next()){
@@ -82,7 +83,8 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
              stmt.setString(1, transaction.getType());
              stmt.setString(2, transaction.getDescription());
              stmt.setDouble(3, transaction.getAmount());
-            
+             stmt.setInt(4, transaction.getId());
+             
              int rowsAffected = stmt.executeUpdate();
              return rowsAffected > 0;
          }catch(SQLException e){

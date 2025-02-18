@@ -10,13 +10,16 @@ import sk.management.system.Controller.TransactionController;
 import sk.management.system.model.Transaction;
 import sk.management.system.view.dashboard.AddTransaction;
 import sk.management.system.view.profile.Action;
+import sk.management.system.view.profile.TableCellAction;
+import sk.management.system.view.profile.TableCellRendererAction;
 
 public class Form_Empty extends javax.swing.JPanel {
     private TransactionController transactionController = new TransactionController();
 //    private Action action = new Action();
-    private JButton button = new JButton("text");
+//    private JButton button = new JButton("text");
     
     public Form_Empty(String name) {
+      
         initComponents();
 //        lb.setText("Form " + name);
 //        txtSearch.setPrefixIcon(new ImageIcon(getClass().getResource("/sk/management/system/images/search.png")));
@@ -26,6 +29,16 @@ public class Form_Empty extends javax.swing.JPanel {
 
         txtSearch.setHint("Search");
         add(txtSearch, "w 20%");
+        tableBudget.getColumnModel().getColumn(0).setCellRenderer(new TableCellRendererAction()); // ID Column
+        tableBudget.getColumnModel().getColumn(1).setCellRenderer(new TableCellRendererAction()); // Type Column
+        tableBudget.getColumnModel().getColumn(2).setCellRenderer(new TableCellRendererAction()); // Description Column
+        tableBudget.getColumnModel().getColumn(3).setCellRenderer(new TableCellRendererAction()); // Amount Column
+
+        // Suppose column index 4 is the Action column
+        tableBudget.getColumnModel().getColumn(4).setCellRenderer(new TableCellRendererAction());//for Edit and delete button
+        tableBudget.getColumnModel().getColumn(4).setCellEditor(new TableCellAction(tableBudget));
+
+        tableBudget.loadData();
     }
 
     @SuppressWarnings("unchecked")
@@ -209,6 +222,7 @@ public class Form_Empty extends javax.swing.JPanel {
             .addComponent(panelBudget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    
     private void addTransaction(Transaction transaction){
         transaction.setType(cmbTransactionType.getSelectedItem().toString());
         transaction.setDescription( txtDescription.getText().trim());
@@ -229,10 +243,15 @@ public class Form_Empty extends javax.swing.JPanel {
                                       JOptionPane.INFORMATION_MESSAGE);
         // Optionally clear the fields or refresh the transaction table
         clearTransactionFields();
+        tableBudget.loadData();
     } else {
         JOptionPane.showMessageDialog(this, "Failed to add transaction.", "Error", 
                                       JOptionPane.ERROR_MESSAGE);
     }
+   
+    }
+    private void viewTransaction(Transaction transaction){
+        
     }
     private void clearTransactionFields() {
     cmbTransactionType.setSelectedIndex(0);

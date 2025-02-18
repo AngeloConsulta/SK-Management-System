@@ -2,14 +2,18 @@ package sk.management.system.view.profile;
 
 import sk.management.system.model.ModelAction;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 public class Action extends javax.swing.JPanel {
 
     public Action(ModelAction data) {
         initComponents();
+        
+        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
         cmdEdit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -44,6 +48,7 @@ public class Action extends javax.swing.JPanel {
                 cmdDeleteActionPerformed(evt);
             }
         });
+        add(cmdDelete);
 
         cmdEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sk/management/system/images/edit.png"))); // NOI18N
         cmdEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -51,29 +56,15 @@ public class Action extends javax.swing.JPanel {
                 cmdEditActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cmdEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(cmdDelete)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmdDelete)
-                    .addComponent(cmdEdit))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(cmdEdit);
     }// </editor-fold>//GEN-END:initComponents
+    public JButton getBtnEdit() {
+        return cmdEdit;
+    }
 
+    public JButton getBtnDelete() {
+        return cmdDelete;
+    }
     private void cmdEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdEditActionPerformed

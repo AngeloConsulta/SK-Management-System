@@ -4,7 +4,7 @@ import sk.management.system.model.Transaction;
 
 public interface EventAction {
 
-    public void delete(Transaction transaction);
+    public boolean delete(Transaction transaction);
 
-    public void update(Transaction transaction);
+    public boolean update(Transaction transaction);
 }

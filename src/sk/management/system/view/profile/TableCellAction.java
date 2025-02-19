@@ -8,6 +8,9 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
+import sk.management.system.Controller.TransactionController;
+import sk.management.system.DAOIMPL.TransactionDAOIMPL;
+import sk.management.system.view.dashboard.Form_Empty;
 
 public class TableCellAction extends AbstractCellEditor implements TableCellEditor{
 
@@ -15,24 +18,16 @@ public class TableCellAction extends AbstractCellEditor implements TableCellEdit
     private Action actionPanel;
     private int row;
     private JTable table;
-    
-    public TableCellAction(JTable table) {
+    private TransactionDAOIMPL transactionDAO;
+    private TransactionController controller = new TransactionController();
+    private Form_Empty transactionView;
+//    private Table tabletrans = new Table();
+    public TableCellAction(JTable table ,Form_Empty transactionView) {
+        this.transactionView = transactionView;
         this.table = table;
-        actionPanel = new Action(data);
-     // Add button listeners
-        actionPanel.getBtnEdit().addActionListener(e -> {
-            stopCellEditing();  // End editing mode
-            if (data != null && data.getEvent() != null) {
-                data.getEvent().update(data.getTransaction());
-            }
-        });
-
-        actionPanel.getBtnDelete().addActionListener(e -> {
-            stopCellEditing();
-            if (data != null && data.getEvent() != null) {
-                data.getEvent().delete(data.getTransaction());
-            }
-        });
+        this.transactionDAO = new TransactionDAOIMPL();
+        this.actionPanel = new Action(null);
+     
     }
 
     @Override
@@ -40,13 +35,30 @@ public class TableCellAction extends AbstractCellEditor implements TableCellEdit
         if (value instanceof ModelAction) {
             data = (ModelAction) value;
 
-        Action cell = new Action(data);
-        cell.setBackground(isSelected ? table.getSelectionBackground() : table.getBackground());
-        return cell;
-    }else {
-            actionPanel = new Action(null); // or handle the null case
+        actionPanel = new Action(data);
+        actionPanel.setBackground(isSelected ? table.getSelectionBackground() : table.getBackground());
+        // Add button listeners
+        actionPanel.getBtnEdit().addActionListener(e -> {
+            stopCellEditing();  // End editing mode
+            if (data != null && data.getEvent() != null) {
+                 transactionView.updateTransaction(data.getTransaction()); 
+//                 transactionView
+//                 tabletrans.loadData(); // Refresh table after update
+            }
+        });
+
+        actionPanel.getBtnDelete().addActionListener(e -> {
+            stopCellEditing();
+            if (data != null && data.getEvent() != null) {
+                transactionView.deleteTransaction(data.getTransaction()); 
+//                tabletrans.loadData(); // Refresh table after update It not refreshing
+
+            }
+        });
+         return actionPanel;
         }
-        return actionPanel;
+       
+        return new Action(null); // Fallback action panel
     }
 
 

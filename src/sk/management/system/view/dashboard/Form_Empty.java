@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import sk.management.system.Controller.TransactionController;
+import sk.management.system.DAOIMPL.TransactionDAOIMPL;
+import sk.management.system.model.ModelAction;
 import sk.management.system.model.Transaction;
 import sk.management.system.view.dashboard.AddTransaction;
 import sk.management.system.view.profile.Action;
@@ -36,8 +38,22 @@ public class Form_Empty extends javax.swing.JPanel {
 
         // Suppose column index 4 is the Action column
         tableBudget.getColumnModel().getColumn(4).setCellRenderer(new TableCellRendererAction());//for Edit and delete button
-        tableBudget.getColumnModel().getColumn(4).setCellEditor(new TableCellAction(tableBudget));
-
+        tableBudget.getColumnModel().getColumn(4).setCellEditor(new TableCellAction(tableBudget, this));
+            // Load transaction data into the table
+        TransactionDAOIMPL transactionDAO = new TransactionDAOIMPL();
+        for (Transaction transaction : transactionDAO.getAllTransactions()) {
+            ModelAction modelAction = new ModelAction(transaction, transactionController);
+            tableBudget.addRow(new Object[]{
+               transaction.getId(),
+               transaction.getType(),
+               transaction.getDescription(),
+               transaction.getAmount(),
+               modelAction
+        });
+    }
+        
+        
+        
         tableBudget.loadData();
     }
 
@@ -250,6 +266,7 @@ public class Form_Empty extends javax.swing.JPanel {
     }
    
     }
+    
     private void viewTransaction(Transaction transaction){
         
     }
@@ -257,7 +274,71 @@ public class Form_Empty extends javax.swing.JPanel {
     cmbTransactionType.setSelectedIndex(0);
     txtDescription.setText("");
     txtAmount.setText("");
+    }
+   public void updateTransaction(Transaction transaction) {
+    // Prompt user to edit transaction type
+    String newType = JOptionPane.showInputDialog(this, 
+        "Edit Transaction Type:", transaction.getType());
+    
+    // Prompt user to edit description
+    String newDescription = JOptionPane.showInputDialog(this, 
+        "Edit Description:", transaction.getDescription());
+
+    // Prompt user to edit amount (ensure it's a valid number)
+    String newAmountStr = JOptionPane.showInputDialog(this, 
+        "Edit Amount:", transaction.getAmount());
+    
+    if (newType != null && !newType.trim().isEmpty() &&
+        newDescription != null && !newDescription.trim().isEmpty() &&
+        newAmountStr != null && !newAmountStr.trim().isEmpty()) {
+        
+        try {
+            double newAmount = Double.parseDouble(newAmountStr);
+            
+            // Update transaction object with new values
+            transaction.setType(newType);
+            transaction.setDescription(newDescription);
+            transaction.setAmount(newAmount);
+
+            // Call controller update method
+            boolean success = transactionController.update(transaction);
+
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Transaction updated successfully!", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                tableBudget.loadData(); // Refresh table after updating
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to update transaction.", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid amount entered. Please enter a valid number.", 
+                "Input Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    }
+
+    public void deleteTransaction(Transaction transaction) {
+    int confirm = JOptionPane.showConfirmDialog(this, 
+        "Are you sure you want to delete this transaction?", 
+        "Delete Confirmation", JOptionPane.YES_NO_OPTION);
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        boolean success = transactionController.delete(transaction);
+        
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Transaction deleted successfully!", 
+                "Success", JOptionPane.INFORMATION_MESSAGE);
+            tableBudget.loadData(); // Refresh table after deletion
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to delete transaction.", 
+                "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
+
+    
+
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed

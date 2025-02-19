@@ -61,12 +61,14 @@ public class Table extends JTable implements EventAction{
             //Create an EventAction for each row
             EventAction event = new EventAction(){
                 @Override
-                public void delete(Transaction transaction){
+                public boolean delete(Transaction transaction){
                     System.out.println("Delete: " + transaction.getId());
+                    return false;
                 }
                 @Override
-                public void update(Transaction transaction){
+                public boolean update(Transaction transaction){
                     System.out.println("Edit: " + transaction.getId());
+                    return false;
                 }
             
           
@@ -107,14 +109,16 @@ public class Table extends JTable implements EventAction{
     }
 
     @Override
-    public void delete(Transaction transaction) {
+    public boolean delete(Transaction transaction) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Transaction transaction) {
+    public boolean update(Transaction transaction) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+   
 
  
 }

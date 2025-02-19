@@ -33,47 +33,34 @@ public class TransactionController implements EventAction {
     public List<Transaction> getAllTransactions(){
         return transact.getAllTransactions();
     }
-    private boolean validateTransaction(Transaction transaction) {
-        if (transaction == null) {
-            JOptionPane.showMessageDialog(null, "Transaction data is missing.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if (transaction.getType() == null || transaction.getType().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Transaction type cannot be empty.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if (transaction.getDescription() == null || transaction.getDescription().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Transaction description cannot be empty.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if (transaction.getAmount() <= 0) {
-            JOptionPane.showMessageDialog(null, "Transaction amount must be greater than zero.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        return true;
+//    private boolean validateTransaction(Transaction transaction) {
+//        if (transaction == null) {
+//            JOptionPane.showMessageDialog(null, "Transaction data is missing.", "Input Error", JOptionPane.ERROR_MESSAGE);
+//            return false;
+//        }
+//        if (transaction.getType() == null || transaction.getType().trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Transaction type cannot be empty.", "Input Error", JOptionPane.ERROR_MESSAGE);
+//            return false;
+//        }
+//        if (transaction.getDescription() == null || transaction.getDescription().trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Transaction description cannot be empty.", "Input Error", JOptionPane.ERROR_MESSAGE);
+//            return false;
+//        }
+//        if (transaction.getAmount() <= 0) {
+//            JOptionPane.showMessageDialog(null, "Transaction amount must be greater than zero.", "Input Error", JOptionPane.ERROR_MESSAGE);
+//            return false;
+//        }
+//        return true;
+//    }
+    
+
+    @Override
+    public boolean delete(Transaction transaction) {
+        return transact.archiveTransaction(transaction.getId()); // Call DAO to delete transaction
     }
 
     @Override
-    public void delete(Transaction transaction) {
-        int confirm = JOptionPane.showConfirmDialog(null, 
-            "Are you sure you want to delete this transaction?", 
-            "Delete Confirmation", JOptionPane.YES_NO_OPTION);
-        
-        if (confirm == JOptionPane.YES_OPTION) {
-            transact.archiveTransaction(transaction.getId());
-            JOptionPane.showMessageDialog(null, "Transaction deleted successfully!");
-        }
-    }
-
-    @Override
-    public void update(Transaction transaction) {
-       String newDescription = JOptionPane.showInputDialog(null, 
-            "Edit Description:", transaction.getDescription());
-        
-        if (newDescription != null) {
-            transaction.setDescription(newDescription);
-            transact.updateTransaction(transaction);
-            JOptionPane.showMessageDialog(null, "Transaction updated successfully!");
-        }
+    public boolean update(Transaction transaction) {
+       return transact.updateTransaction(transaction); // Call DAO to update transaction
     }
 }

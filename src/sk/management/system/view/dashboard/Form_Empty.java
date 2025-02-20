@@ -1,16 +1,23 @@
 package sk.management.system.view.dashboard;
 
 import java.awt.Component;
+import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JComboBox;
+
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
 import sk.management.system.Controller.TransactionController;
 import sk.management.system.DAOIMPL.TransactionDAOIMPL;
 import sk.management.system.model.ModelAction;
 import sk.management.system.model.Transaction;
-import sk.management.system.view.dashboard.AddTransaction;
+
 import sk.management.system.view.profile.Action;
 import sk.management.system.view.profile.TableCellAction;
 import sk.management.system.view.profile.TableCellRendererAction;
@@ -20,7 +27,7 @@ public class Form_Empty extends javax.swing.JPanel {
 //    private Action action = new Action();
 //    private JButton button = new JButton("text");
     
-    public Form_Empty(String name) {
+    public Form_Empty() {//I erased here the (String name)
       
         initComponents();
 //        lb.setText("Form " + name);
@@ -55,6 +62,7 @@ public class Form_Empty extends javax.swing.JPanel {
         
         
         tableBudget.loadData();
+        UpdateLocalBudget();
     }
 
     @SuppressWarnings("unchecked")
@@ -68,25 +76,24 @@ public class Form_Empty extends javax.swing.JPanel {
         roundPanel1 = new sk.management.system.view.profile.RoundPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableBudget = new sk.management.system.view.profile.Table();
-        cmbTransactionType = new javax.swing.JComboBox<>();
         txtSearch = new sk.management.system.view.auth.MyTextField();
         btnAddTransaction = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtDescription = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
 
         setOpaque(false);
 
+        cardSavings.setColor2(new java.awt.Color(204, 0, 51));
         cardSavings.setDescription("Total Savings");
         cardSavings.setIcon(javaswingdev.GoogleMaterialDesignIcon.INPUT);
+        cardSavings.setValues("PHP 0.00");
 
+        cardIncome.setColor2(new java.awt.Color(153, 0, 153));
         cardIncome.setDescription("Total Income");
-        cardIncome.setIcon(javaswingdev.GoogleMaterialDesignIcon.ATTACH_MONEY);
+        cardIncome.setIcon(javaswingdev.GoogleMaterialDesignIcon.IMPORT_EXPORT);
+        cardIncome.setValues("PHP 0.00");
 
         cardExpenses.setDescription("Total Expenses");
+        cardExpenses.setValues("PHP 0.00");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -110,8 +117,6 @@ public class Form_Empty extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableBudget);
 
-        cmbTransactionType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Income Transaction", "Expenses Transaction", " ", " " }));
-
         txtSearch.setBackground(new java.awt.Color(220, 240, 255));
         txtSearch.setForeground(new java.awt.Color(0, 0, 0));
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -121,30 +126,20 @@ public class Form_Empty extends javax.swing.JPanel {
         });
 
         btnAddTransaction.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddTransaction.setText("Add ");
+        btnAddTransaction.setText("Add Transaction");
         btnAddTransaction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddTransactionActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Type");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Description");
-
-        txtDescription.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSearch.setText("Filter");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescriptionActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Amount");
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Filter");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -154,26 +149,13 @@ public class Form_Empty extends javax.swing.JPanel {
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(jButton1))
-                    .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbTransactionType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDescription)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAmount)
-                        .addGap(25, 25, 25)
+                        .addComponent(btnSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAddTransaction)))
                 .addContainerGap())
         );
@@ -183,18 +165,10 @@ public class Form_Empty extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(20, 20, 20)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTransactionType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddTransaction)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                    .addComponent(btnSearch)
+                    .addComponent(btnAddTransaction))
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -240,41 +214,60 @@ public class Form_Empty extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     
     private void addTransaction(Transaction transaction){
-        transaction.setType(cmbTransactionType.getSelectedItem().toString());
-        transaction.setDescription( txtDescription.getText().trim());
+        // Create a panel to hold input fields
+    JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5));
+
+    // Transaction Type Dropdown
+    panel.add(new JLabel("Transaction Type:"));
+    String[] options = {"Income Transaction", "Expenses Transaction"};
+    JComboBox<String> cmbType = new JComboBox<>(options);
+    panel.add(cmbType);
+
+    // Description Field
+    panel.add(new JLabel("Description:"));
+    JTextField txtDescription = new JTextField();
+    panel.add(txtDescription);
+
+    // Amount Field
+    panel.add(new JLabel("Amount:"));
+    JTextField txtAmount = new JTextField();
+    panel.add(txtAmount);
+
+    // Show the panel inside a JOptionPane
+    int result = JOptionPane.showConfirmDialog(this, panel, 
+        "Add Transaction", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+    if (result == JOptionPane.OK_OPTION) {
+        transaction.setType(cmbType.getSelectedItem().toString());
+        transaction.setDescription(txtDescription.getText().trim());
+
         try {
-        // Parse the amount from the text field
-        double amount = Double.parseDouble(txtAmount.getText().trim());
-        transaction.setAmount(amount);
-    } catch (NumberFormatException e) {
-        // Handle the case where the input isn't a valid double
-        JOptionPane.showMessageDialog(this, "Invalid amount entered. Please enter a valid number.", "Input Error", JOptionPane.ERROR_MESSAGE);
-        return; // Optionally exit the method if the value is invalid
-    }
+            // Parse the amount
+            double amount = Double.parseDouble(txtAmount.getText().trim());
+            transaction.setAmount(amount);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid amount entered. Please enter a valid number.", 
+                "Input Error", JOptionPane.ERROR_MESSAGE);
+            return; // Stop execution if input is invalid
+        }
+
+        // Save transaction using the controller
         boolean success = transactionController.addTransaction(transaction);
-    
-    // Show success or error message based on the result from the controller
-    if (success) {
-        JOptionPane.showMessageDialog(this, "Transaction added successfully!", "Success", 
-                                      JOptionPane.INFORMATION_MESSAGE);
-        // Optionally clear the fields or refresh the transaction table
-        clearTransactionFields();
-        tableBudget.loadData();
-    } else {
-        JOptionPane.showMessageDialog(this, "Failed to add transaction.", "Error", 
-                                      JOptionPane.ERROR_MESSAGE);
+
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Transaction added successfully!", 
+                "Success", JOptionPane.INFORMATION_MESSAGE);
+            tableBudget.loadData(); // Refresh table
+            UpdateLocalBudget(); // Update summary
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to add transaction.", 
+                "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
    
     }
     
-    private void viewTransaction(Transaction transaction){
-        
-    }
-    private void clearTransactionFields() {
-    cmbTransactionType.setSelectedIndex(0);
-    txtDescription.setText("");
-    txtAmount.setText("");
-    }
+   
    public void updateTransaction(Transaction transaction) {
     // Prompt user to edit transaction type
     String newType = JOptionPane.showInputDialog(this, 
@@ -307,6 +300,7 @@ public class Form_Empty extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Transaction updated successfully!", 
                     "Success", JOptionPane.INFORMATION_MESSAGE);
                 tableBudget.loadData(); // Refresh table after updating
+                UpdateLocalBudget();
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to update transaction.", 
                     "Error", JOptionPane.ERROR_MESSAGE);
@@ -330,12 +324,39 @@ public class Form_Empty extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Transaction deleted successfully!", 
                 "Success", JOptionPane.INFORMATION_MESSAGE);
             tableBudget.loadData(); // Refresh table after deletion
+            UpdateLocalBudget();
         } else {
             JOptionPane.showMessageDialog(this, "Failed to delete transaction.", 
                 "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-}
+    
+    }
+    private void searchupdateTable(List<Transaction> transactions) {
+    DefaultTableModel model = (DefaultTableModel) tableBudget.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    for (Transaction t : transactions) {
+        model.addRow(new Object[]{
+            t.getId(),
+            t.getType(),
+            t.getDescription(),
+            t.getAmount()
+        });
+    }
+    }
+    private void UpdateLocalBudget(){
+        double totalExpenses = transactionController.fetchTotalExpenses();
+        double totalIncome = transactionController.fetchTotalIncome();
+        double totalSavings = transactionController.fetchTotalSavings();
+        
+        cardExpenses. setValues(String.format("PHP %.2f", totalExpenses));
+        cardIncome. setValues(String.format("PHP %.2f", totalIncome));
+        cardSavings. setValues(String.format("PHP %.2f", totalSavings));
+        
+    }
+
+    
 
     
 
@@ -349,26 +370,23 @@ public class Form_Empty extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnAddTransactionActionPerformed
 
-    private void txtDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriptionActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescriptionActionPerformed
+        String searchText = txtSearch.getText();
+        List<Transaction> results = transactionController.searchTransactions(searchText);
+        searchupdateTable(results);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddTransaction;
+    private javax.swing.JButton btnSearch;
     private sk.management.system.view.cards.Card cardExpenses;
     private sk.management.system.view.cards.Card cardIncome;
     private sk.management.system.view.cards.Card cardSavings;
-    private javax.swing.JComboBox<String> cmbTransactionType;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelBudget;
     private sk.management.system.view.profile.RoundPanel roundPanel1;
     private sk.management.system.view.profile.Table tableBudget;
-    private javax.swing.JTextField txtAmount;
-    private javax.swing.JTextField txtDescription;
     private sk.management.system.view.auth.MyTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

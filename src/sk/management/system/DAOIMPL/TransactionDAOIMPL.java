@@ -45,6 +45,7 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
             //for(int i = 1; i <= rsmd.getColumnCount(); i++){
  
             //}
+    @Override
     public List<Transaction> getAllTransactions(){
         List <Transaction> transaction = new ArrayList<>();
         try {
@@ -109,6 +110,70 @@ public class TransactionDAOIMPL extends DBConnection implements TransactionDAO, 
             System.out.println("Invalid input, Please Try Again "+ e);
             return false;
         }
+        
+    }
+    @Override
+    public List<Transaction> searchTransactions(String keyword) {
+        List<Transaction> transactions = new ArrayList<>();
+       
+        
+        try {
+            connection();
+            stmt = con.prepareStatement(TRANS_SEARCH);
+            stmt.setString(1, "%" + keyword + "%");
+            stmt.setString(2, "%" + keyword + "%");
+            stmt.setString(3, "%" + keyword + "%");
+            stmt.setString(4, "%" + keyword + "%");
+
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Transaction t = new Transaction(
+                    rs.getInt("trans_id"),
+                    rs.getString("trans_type"),
+                    rs.getString("trans_description"),
+                    rs.getDouble("trans_amount")
+                );
+                transactions.add(t); 
+            }
+        }catch(SQLException e){
+             System.out.println("Invalid input, Please Try Again "+ e);
+        } finally {
+               try { con.close();} catch (SQLException ex) {System.out.println("Failed to close resources: " + ex.getMessage()); }
+            
+        }
+        return transactions;
+    }
+    @Override
+    public double getTotalExpenses(){
+        double total = 0.0;
+        try {
+            connection();
+           
+            stmt = con.prepareStatement(TOTAL_EXPENSES);
+            rs =stmt.executeQuery();
+            if (rs.next()){
+                total = rs.getDouble(1);
+            }
+            
+        }catch(SQLException e){
+             System.out.println("Invalid input, Please Try Again "+ e);
+        } 
+        return total;
+    }
+    @Override
+    public double getTotalIncome(){
+        double total = 0.0;
+        try{
+           
+            stmt = con.prepareStatement(TOTAL_INCOME);
+            rs = stmt.executeQuery();
+            if (rs.next()){
+                total = rs.getDouble(1);
+            }
+        }catch(SQLException e){
+             System.out.println("Invalid input, Please Try Again "+ e);
+        } 
+        return total;
     }
 
    

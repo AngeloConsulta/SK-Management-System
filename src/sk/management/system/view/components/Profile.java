@@ -21,9 +21,9 @@ public class Profile extends  PanelTransparent {
         setPreferredSize(new java.awt.Dimension(316, 62));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(30, 30, 30));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sk/management/system/images/SK Logo.png"))); // NOI18N
-        jLabel1.setText(" SK MANAGEMENT SYSTEM");
+        jLabel1.setText(" MANAGEMENT SYSTEM");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -32,7 +32,7 @@ public class Profile extends  PanelTransparent {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

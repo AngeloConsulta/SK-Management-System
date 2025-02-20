@@ -52,7 +52,9 @@ public class TransactionController implements EventAction {
 //        }
 //        return true;
 //    }
-    
+    public List<Transaction> searchTransactions(String keyword) {
+        return transact.searchTransactions(keyword);
+    }
 
     @Override
     public boolean delete(Transaction transaction) {
@@ -62,5 +64,14 @@ public class TransactionController implements EventAction {
     @Override
     public boolean update(Transaction transaction) {
        return transact.updateTransaction(transaction); // Call DAO to update transaction
+    }
+    public double fetchTotalExpenses(){
+        return transact.getTotalExpenses();
+    }
+    public double fetchTotalIncome(){
+        return transact.getTotalIncome();
+    }
+    public double fetchTotalSavings(){
+        return fetchTotalIncome() - fetchTotalExpenses();
     }
 }

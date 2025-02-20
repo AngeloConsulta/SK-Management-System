@@ -1,11 +1,10 @@
 package sk.management.system.view.profile;
 
 import sk.management.system.model.ModelAction;
-import java.awt.Color;
+
 import java.awt.Component;
 import javax.swing.AbstractCellEditor;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JCheckBox;
+
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import sk.management.system.Controller.TransactionController;

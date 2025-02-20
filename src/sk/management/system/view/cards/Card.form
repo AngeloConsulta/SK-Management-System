@@ -64,7 +64,7 @@
           <Color blue="80" green="80" red="80" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="$ 0.00"/>
+        <Property name="text" type="java.lang.String" value="PHP 0.00"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbDescription">

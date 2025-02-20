@@ -4,6 +4,7 @@
  */
 package sk.management.system.DAO;
 
+import java.util.List;
 import sk.management.system.model.Transaction;
 
 /**
@@ -12,6 +13,10 @@ import sk.management.system.model.Transaction;
  */
 public interface TransactionDAO {
      public boolean createTransaction(Transaction transaction);
+     public List<Transaction> getAllTransactions();
      public boolean updateTransaction(Transaction transaction);
      public boolean archiveTransaction(int id);
+     public List<Transaction> searchTransactions(String keyword);
+     public double getTotalExpenses();
+     public double getTotalIncome();
 }

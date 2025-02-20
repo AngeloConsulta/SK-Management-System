@@ -29,13 +29,16 @@ public class TableCellRendererAction extends DefaultTableCellRenderer{
         
              // 'value' should be a ModelAction
             Action actionPanel = new Action(data);
-            actionPanel.getBtnEdit().setEnabled(false);
-            actionPanel.getBtnDelete().setEnabled(false);
+            actionPanel.getBtnEdit().setEnabled(true);
+            actionPanel.getBtnDelete().setEnabled(true);
+            
+              // Get alternating row colors
+            Color defaultBackground = (row % 2 == 1) ? new Color(240, 240, 240) : Color.WHITE; 
         
             if (isSelected) {
                 actionPanel.setBackground(table.getSelectionBackground());
             } else {
-                actionPanel.setBackground(Color.WHITE);
+                actionPanel.setBackground(defaultBackground); 
             }
         return actionPanel;
         }

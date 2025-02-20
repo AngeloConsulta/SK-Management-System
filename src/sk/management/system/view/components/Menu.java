@@ -49,9 +49,9 @@ public class Menu extends JPanel {
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON_ADD, "Youth Registration"));
 //        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Total Youth Count"));
 
-        // REPORTS
-//        addTitle("REPORTS");
-//        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ACCOUNT_BALANCE_WALLET, "Budget Balance"));
+        // User Setting
+        addTitle("User Setting");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS, "Settings"));
 //        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EQUALIZER, "Activity Statistics"));
     }
 

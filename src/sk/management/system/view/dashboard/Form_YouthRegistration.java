@@ -26,30 +26,172 @@ public class Form_YouthRegistration extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jDialog1 = new javax.swing.JDialog();
+        panelYouthRegistration = new javax.swing.JPanel();
+        personalDetails = new sk.management.system.view.cards.Card();
+        youthCount = new sk.management.system.view.cards.Card();
+        roundPanel1 = new sk.management.system.view.profile.RoundPanel();
+        btnAddYouth = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableYouth = new sk.management.system.view.profile.Table();
+        txtSearch = new sk.management.system.view.auth.MyTextField();
+        btnSearchYouth = new javax.swing.JButton();
 
-        jToggleButton1.setText("Youth Registration form");
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        personalDetails.setDescription("");
+        personalDetails.setIcon(javaswingdev.GoogleMaterialDesignIcon.PERSON);
+        personalDetails.setValues("Personal Details");
+
+        youthCount.setDescription("");
+        youthCount.setIcon(javaswingdev.GoogleMaterialDesignIcon.PERSON_ADD);
+        youthCount.setValues("Youth Count");
+
+        roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+        btnAddYouth.setBackground(new java.awt.Color(102, 153, 255));
+        btnAddYouth.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddYouth.setText("Add List");
+        btnAddYouth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddYouthActionPerformed(evt);
+            }
+        });
+
+        tableYouth.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID #", "Name", "Gender", "Age", "Address", "Action"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableYouth);
+
+        txtSearch.setBackground(new java.awt.Color(220, 240, 255));
+        txtSearch.setForeground(new java.awt.Color(0, 0, 0));
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+
+        btnSearchYouth.setBackground(new java.awt.Color(102, 153, 255));
+        btnSearchYouth.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSearchYouth.setText("Search");
+        btnSearchYouth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchYouthActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
+        roundPanel1.setLayout(roundPanel1Layout);
+        roundPanel1Layout.setHorizontalGroup(
+            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearchYouth)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddYouth)
+                .addContainerGap())
+            .addComponent(jScrollPane2)
+        );
+        roundPanel1Layout.setVerticalGroup(
+            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddYouth)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchYouth))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelYouthRegistrationLayout = new javax.swing.GroupLayout(panelYouthRegistration);
+        panelYouthRegistration.setLayout(panelYouthRegistrationLayout);
+        panelYouthRegistrationLayout.setHorizontalGroup(
+            panelYouthRegistrationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelYouthRegistrationLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelYouthRegistrationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelYouthRegistrationLayout.createSequentialGroup()
+                        .addComponent(personalDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                        .addGap(20, 20, 20)
+                        .addComponent(youthCount, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
+        );
+        panelYouthRegistrationLayout.setVerticalGroup(
+            panelYouthRegistrationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelYouthRegistrationLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(panelYouthRegistrationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(personalDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                    .addComponent(youthCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(302, 302, 302)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(334, 334, 334))
+            .addComponent(panelYouthRegistration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(269, 269, 269)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(322, 322, 322))
+            .addComponent(panelYouthRegistration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchYouthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchYouthActionPerformed
+        // TODO add your handling code here:
+        //        String searchText = txtSearch.getText();
+        //        List<Transaction> results = transactionController.searchTransactions(searchText);
+        //        searchupdateTable(results);
+    }//GEN-LAST:event_btnSearchYouthActionPerformed
+
+    private void btnAddYouthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddYouthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddYouthActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton btnAddYouth;
+    private javax.swing.JButton btnSearchYouth;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel panelYouthRegistration;
+    private sk.management.system.view.cards.Card personalDetails;
+    private sk.management.system.view.profile.RoundPanel roundPanel1;
+    private sk.management.system.view.profile.Table tableYouth;
+    private sk.management.system.view.auth.MyTextField txtSearch;
+    private sk.management.system.view.cards.Card youthCount;
     // End of variables declaration//GEN-END:variables
 }

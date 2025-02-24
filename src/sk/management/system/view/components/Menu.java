@@ -50,7 +50,7 @@ public class Menu extends JPanel {
 //        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Total Youth Count"));
 
         // User Setting
-        addTitle("User Setting");
+        addTitle("USER SETTINGS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS, "Settings"));
 //        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EQUALIZER, "Activity Statistics"));
     }

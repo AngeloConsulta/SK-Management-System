@@ -85,15 +85,12 @@ public class Form_Empty extends javax.swing.JPanel {
         cardSavings.setColor2(new java.awt.Color(204, 0, 51));
         cardSavings.setDescription("Total Savings");
         cardSavings.setIcon(javaswingdev.GoogleMaterialDesignIcon.INPUT);
-        cardSavings.setValues("PHP 0.00");
 
         cardIncome.setColor2(new java.awt.Color(153, 0, 153));
         cardIncome.setDescription("Total Income");
         cardIncome.setIcon(javaswingdev.GoogleMaterialDesignIcon.IMPORT_EXPORT);
-        cardIncome.setValues("PHP 0.00");
 
         cardExpenses.setDescription("Total Expenses");
-        cardExpenses.setValues("PHP 0.00");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -149,7 +146,7 @@ public class Form_Empty extends javax.swing.JPanel {
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 981, Short.MAX_VALUE))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,7 +165,7 @@ public class Form_Empty extends javax.swing.JPanel {
                     .addComponent(btnSearch)
                     .addComponent(btnAddTransaction))
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -180,11 +177,11 @@ public class Form_Empty extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(panelBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBudgetLayout.createSequentialGroup()
-                        .addComponent(cardExpenses, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                        .addComponent(cardExpenses, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(cardIncome, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                        .addComponent(cardIncome, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(cardSavings, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+                        .addComponent(cardSavings, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE))
                     .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );

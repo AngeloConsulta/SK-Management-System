@@ -26,30 +26,159 @@ public class Form_ActivitiesList extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButton1 = new javax.swing.JToggleButton();
+        panelActivitiesList = new javax.swing.JPanel();
+        implementedAct = new sk.management.system.view.cards.Card();
+        pendAct = new sk.management.system.view.cards.Card();
+        roundPanel1 = new sk.management.system.view.profile.RoundPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableActivities = new sk.management.system.view.profile.Table();
+        btnAddList = new javax.swing.JButton();
+        txtSearch = new sk.management.system.view.auth.MyTextField();
+        btnSearchActivities = new javax.swing.JButton();
 
-        jToggleButton1.setText("Activities List form");
+        implementedAct.setDescription("Implemented Activities");
+        implementedAct.setIcon(javaswingdev.GoogleMaterialDesignIcon.PLAY_FOR_WORK);
+
+        pendAct.setDescription("Pending Activities");
+        pendAct.setIcon(javaswingdev.GoogleMaterialDesignIcon.PLAY_CIRCLE_OUTLINE);
+
+        roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+        tableActivities.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID #", "Activity Name", "Activity Fund", "Date", "Task", "Action"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableActivities);
+
+        btnAddList.setBackground(new java.awt.Color(102, 153, 255));
+        btnAddList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddList.setText("Add List");
+
+        txtSearch.setBackground(new java.awt.Color(220, 240, 255));
+        txtSearch.setForeground(new java.awt.Color(0, 0, 0));
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+
+        btnSearchActivities.setBackground(new java.awt.Color(102, 153, 255));
+        btnSearchActivities.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSearchActivities.setText("Search");
+        btnSearchActivities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActivitiesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
+        roundPanel1.setLayout(roundPanel1Layout);
+        roundPanel1Layout.setHorizontalGroup(
+            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnSearchActivities)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddList)))
+                .addContainerGap())
+        );
+        roundPanel1Layout.setVerticalGroup(
+            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddList)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchActivities))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelActivitiesListLayout = new javax.swing.GroupLayout(panelActivitiesList);
+        panelActivitiesList.setLayout(panelActivitiesListLayout);
+        panelActivitiesListLayout.setHorizontalGroup(
+            panelActivitiesListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelActivitiesListLayout.createSequentialGroup()
+                .addGroup(panelActivitiesListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelActivitiesListLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(implementedAct, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                        .addGap(150, 150, 150)
+                        .addComponent(pendAct, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                        .addGap(150, 150, 150))
+                    .addGroup(panelActivitiesListLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
+        );
+        panelActivitiesListLayout.setVerticalGroup(
+            panelActivitiesListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelActivitiesListLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(panelActivitiesListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pendAct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(implementedAct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(278, 278, 278)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(324, 324, 324))
+                .addComponent(panelActivitiesList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(274, 274, 274))
+                .addComponent(panelActivitiesList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchActivitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActivitiesActionPerformed
+        // TODO add your handling code here:
+//        String searchText = txtSearch.getText();
+//        List<Transaction> results = transactionController.searchTransactions(searchText);
+//        searchupdateTable(results);
+    }//GEN-LAST:event_btnSearchActivitiesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton btnAddList;
+    private javax.swing.JButton btnSearchActivities;
+    private sk.management.system.view.cards.Card implementedAct;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel panelActivitiesList;
+    private sk.management.system.view.cards.Card pendAct;
+    private sk.management.system.view.profile.RoundPanel roundPanel1;
+    private sk.management.system.view.profile.Table tableActivities;
+    private sk.management.system.view.auth.MyTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
